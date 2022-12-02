@@ -1,8 +1,10 @@
 const app = new Vue({
     el: '#app',
     data: {
-        produtos: {},
-        categorias:{},
+        produtos: [],
+        produto: [],
+        produtoEscolhido: false,
+        categorias:[],
         categoria: 'All Products'
     },
     filters:{
@@ -32,6 +34,16 @@ const app = new Vue({
             .then(r=>{
                 this.produtos = r;
             })
+        },
+       fetchProduto(id){
+        fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(r=>r.json())
+        .then(r=>{
+            this.produto = r;
+        })
+        },
+        abrirModal(id){
+            this.fetchProduto(id);       
         },
     },
     created(){
