@@ -43,14 +43,14 @@
                     </ul>
                 </div>
             </section>
-    
-            <section class="produto-modal" v-if="produto">
+
+            <section class="produto-modal" v-if="produtoEscolhido">
                 <div class="produto-container">
                     <div class="imagem-modal">
                         <img class="produto-imagem imagem-modal" :src="produto.image" :alt="produto.nome">
                     </div>
                     <div class="infos-modal">
-                        <button class="fechar-modal">X</button>
+                        <button class="fechar-modal" @click="fecharModal">X</button>
                         <h2 class="titulo-modal">{{produto.title}}</h2>
                         <p class="descricao-modal">{{produto.description}}</p>
                     </div>
@@ -58,8 +58,8 @@
                     <button class="adicionar-carrinho">Add to Cart</button>
                 </div>
             </section>
-    
-    
+
+
         </section>
     </div>
     <script src="./app.js"></script>

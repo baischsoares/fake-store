@@ -43,7 +43,12 @@ const app = new Vue({
         })
         },
         abrirModal(id){
-            this.fetchProduto(id);       
+            this.fetchProduto(id);  
+            this.produtoEscolhido = true;     
+        },
+        fecharModal(){;  
+            this.produtoEscolhido = false;     
+            this.produto = [];
         },
     },
     created(){
