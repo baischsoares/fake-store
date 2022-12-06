@@ -55,6 +55,12 @@ const app = new Vue({
       this.produtoEscolhido = false;
       this.produto = [];
     },
+    fecharModalCliqueFora() {
+      if (event.target == event.currentTarget) {
+        this.carrinhoAtivo = false;
+        this.fecharModal();
+      }
+    },
     adicionarCarrinho() {
       this.carrinho.push(this.produto);
     },

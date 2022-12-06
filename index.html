@@ -43,7 +43,7 @@
             </section>
         </section>
 
-        <section class="produto-modal" v-if="produtoEscolhido">
+        <section class="produto-modal" v-if="produtoEscolhido" @click="fecharModalCliqueFora">
             <div class="produto-container">
                 <div class="imagem-modal">
                     <img class="produto-imagem imagem-modal" :src="produto.image" :alt="produto.nome">
@@ -58,7 +58,7 @@
             </div>
         </section>
 
-        <section class="carrinho-modal" v-if="carrinhoAtivo">
+        <section class="carrinho-modal" v-if="carrinhoAtivo" @click="fecharModalCliqueFora">
             <div class="carrinho-container">
                 <button class="fechar-carrinho" @click="carrinhoAtivo = false">X</button>
                 <ul class="lista-carrinho">
