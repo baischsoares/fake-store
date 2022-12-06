@@ -58,6 +58,12 @@ const app = new Vue({
     adicionarCarrinho() {
       this.carrinho.push(this.produto);
     },
+    removerItemdoCarrinho(id) {
+      const indexPrimeiroItem = this.carrinho.findIndex((item) => {
+        return item.id === id;
+      });
+      this.carrinho.splice(indexPrimeiroItem, 1);
+    },
   },
   computed: {
     totalCarrinho() {

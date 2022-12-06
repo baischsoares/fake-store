@@ -66,7 +66,7 @@
                         <img class="img-carrinho" :src="produto.image" alt="">
                         <p class="nome-carrinho">{{produto.title}}</p>
                         <p class="preco-carrinho">{{produto.price | formatarNumero}}</p>
-                        <button class="remover-carrinho">Remover</button>
+                        <button class="remover-carrinho" @click="removerItemdoCarrinho(produto.id)">Remover</button>
                     </li>
                 </ul>
                 <div class="finalizar-compra">
