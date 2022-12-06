@@ -17,8 +17,8 @@
             <header>
                 <h1>Fake Store</h1>
                 <nav>
-                    <a href=""><img class="carrinho" src="./images/carrinho.svg" alt=""></a>
-                    <a href=""><img class="avatar" src="./images/avatar.png" alt=""></a>
+                    <button @click="carrinhoAtivo = true"><img class="carrinho" src="./images/carrinho.svg" alt=""></button>
+                    <button><img class="avatar" src="./images/avatar.png" alt=""></button>
                 </nav>
             </header>
             <section class="main">
@@ -26,15 +26,13 @@
                     <h2>Categorias</h2>
                     <ul class="lista-categorias">
                         <li class="categorias-itens" @click="fetchProdutos">All products</li>
-                        <li class="categorias-itens" v-for="categoria in categorias" :key="categoria"
-                            @click="fetchProdutosCategorias(categoria)">{{categoria}}</li>
+                        <li class="categorias-itens" v-for="categoria in categorias" :key="categoria" @click="fetchProdutosCategorias(categoria)">{{categoria}}</li>
                     </ul>
                 </aside>
                 <div class="produtos">
                     <h2 class="titulo-lista">{{categoria}}</h2>
                     <ul class="lista-produtos">
-                        <li class="produto-item" v-for="produto in produtos" :key="produto.id"
-                            @click="abrirModal(produto.id)">
+                        <li class="produto-item" v-for="produto in produtos" :key="produto.id" @click="abrirModal(produto.id)">
                             <img class="produto-imagem" :src="produto.image" :alt="produto.nome">
                             <h2>{{produto.title}}</h2>
                             <p><img src="./images/star.jpg" class="avaliacao-imagem" alt="">{{produto.rating.rate}}</p>
@@ -43,23 +41,39 @@
                     </ul>
                 </div>
             </section>
+        </section>
 
-            <section class="produto-modal" v-if="produtoEscolhido">
-                <div class="produto-container">
-                    <div class="imagem-modal">
-                        <img class="produto-imagem imagem-modal" :src="produto.image" :alt="produto.nome">
-                    </div>
-                    <div class="infos-modal">
-                        <button class="fechar-modal" @click="fecharModal">X</button>
-                        <h2 class="titulo-modal">{{produto.title}}</h2>
-                        <p class="descricao-modal">{{produto.description}}</p>
-                    </div>
-                    <span class="preco-modal">$ {{produto.price}}</span>
-                    <button class="adicionar-carrinho">Add to Cart</button>
+        <section class="produto-modal" v-if="produtoEscolhido">
+            <div class="produto-container">
+                <div class="imagem-modal">
+                    <img class="produto-imagem imagem-modal" :src="produto.image" :alt="produto.nome">
                 </div>
-            </section>
+                <div class="infos-modal">
+                    <button class="fechar-modal" @click="fecharModal">X</button>
+                    <h2 class="titulo-modal">{{produto.title}}</h2>
+                    <p class="descricao-modal">{{produto.description}}</p>
+                </div>
+                <span class="preco-modal">$ {{produto.price}}</span>
+                <button class="adicionar-carrinho" @click="adicionarCarrinho">Add to Cart</button>
+            </div>
+        </section>
 
-
+        <section class="carrinho-modal" v-if="carrinhoAtivo">
+            <div class="carrinho-container">
+                <button class="fechar-carrinho" @click="carrinhoAtivo = false">X</button>
+                <ul class="lista-carrinho">
+                    <li class="item-carrinho" v-for="produto in carrinho">
+                        <img class="img-carrinho" :src="produto.image" alt="">
+                        <p class="nome-carrinho">{{produto.title}}</p>
+                        <p class="preco-carrinho">{{produto.price | formatarNumero}}</p>
+                        <button class="remover-carrinho">Remover</button>
+                    </li>
+                </ul>
+                <div class="finalizar-compra">
+                    <p>Total: {{totalCarrinho | formatarNumero}}</p>
+                    <button>Finalizar Compra</button>
+                </div>
+            </div>
         </section>
     </div>
     <script src="./app.js"></script>

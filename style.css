@@ -119,7 +119,6 @@ aside{
     left: 0px;
     width: 100%;
     background-color: rgba(0,0,0,.2);
-    
 }
 
 .produto-container{
@@ -177,4 +176,85 @@ aside{
 }
 .adicionar-carrinho:hover{
     background: #555555;
+}
+
+/*MODAL CARRINHO*/
+.carrinho-modal{
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: rgba(0,0,0,.2);
+}
+.carrinho-container{
+    background-color: antiquewhite;
+    width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    align-self: center;
+    justify-content: flex-end;
+    gap: 5px 20px;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.1), 0px 4px 10px rgba(0,0,0,.2);
+    position: relative;
+}
+.item-carrinho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 10px 0px;
+}
+.img-carrinho{
+    max-width: 40px;
+}
+.nome-carrinho, .preco-carrinho{
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.remover-carrinho{
+    padding: 5px 20px;
+    border: none;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+}
+.remover-carrinho:hover{
+    border: 1px solid red;
+}
+.total-carrinho{
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+.finalizar-compra{
+    display: grid;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.finalizar-compra button{
+    padding: 10px 20px;
+    border: none;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+.finalizar-compra p {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.fechar-carrinho{
+    position: absolute;
+    padding: 10px 14px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.125rem;
+    top: -20px;
+    right: -20px;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.1), 0px 4px 10px rgba(0,0,0,.2);
+    cursor: pointer;
 }
