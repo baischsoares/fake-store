@@ -17,7 +17,7 @@
             <header>
                 <h1>Fake Store</h1>
                 <nav>
-                    <button @click="carrinhoAtivo = true"><img class="carrinho" src="./images/carrinho.svg" alt=""></button>
+                    <button @click="carrinhoAtivo = true"><span class="avisoCarrinho" v-if="carrinho.length > 0">{{carrinho.length}}</span><img class="carrinho" src="./images/carrinho.svg" alt=""></button>
                     <button><img class="avatar" src="./images/avatar.png" alt=""></button>
                 </nav>
             </header>
