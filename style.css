@@ -38,14 +38,24 @@ nav button{
     cursor: pointer;
     box-sizing: border-box;
 }
-nav button:hover{
-    border-radius: 50%;
-    border: 1px solid #555555;
-}
+
 .carrinho, .avatar{
     width: 50px;
     padding: 10px;
-
+}
+.carrinho{
+    position: relative;
+}
+.avisoCarrinho{
+    position: absolute;
+    z-index: 9;
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 50%;
+    background-color:tomato;
+    color: white;
+    font-weight: bold;
+    font-size: 1.125rem;
 }
 
 
