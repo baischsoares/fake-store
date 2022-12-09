@@ -55,11 +55,12 @@
                 </div>
                 <span class="preco-modal">$ {{produto.price}}</span>
                 <button class="adicionar-carrinho" @click="adicionarCarrinho">Add to Cart</button>
+
             </div>
         </section>
 
         <section class="carrinho-modal" v-if="carrinhoAtivo" @click="fecharModalCliqueFora">
-            <div class="carrinho-container">
+            <div v-if="carrinho.length > 0" class="carrinho-container">
                 <button class="fechar-carrinho" @click="carrinhoAtivo = false">X</button>
                 <ul class="lista-carrinho">
                     <li class="item-carrinho" v-for="produto in carrinho">
@@ -73,6 +74,10 @@
                     <p>Total: {{totalCarrinho | formatarNumero}}</p>
                     <button>Finalizar Compra</button>
                 </div>
+            </div>
+            <div v-else class="carrinho-container">
+                <button class="fechar-carrinho" @click="carrinhoAtivo = false">X</button>
+                <h2>Your shopping cart is empty</h2>
             </div>
         </section>
     </div>
