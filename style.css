@@ -196,7 +196,11 @@ aside{
 .adicionar-carrinho:hover{
     background: #555555;
 }
-
+.produtoAdicionado{
+    grid-column: 2;
+    text-align: end;
+    color: seagreen;
+}
 /*MODAL CARRINHO*/
 .carrinho-modal{
     position: fixed;
